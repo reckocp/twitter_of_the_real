@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+20.times do |x|
+  user = User.create!(username: Faker::StarWars.planet + Faker::Address.building_number,
+                      password: "password")
+  3.times do
+    tweet = Tweet.create!(message: Faker::StarWars.quote,
+                          user_id: user.id)
+  end
+end

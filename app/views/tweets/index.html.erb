@@ -1,3 +1,6 @@
+
+<%= render 'layouts/header' %>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Tweets</h1>
@@ -27,3 +30,4 @@
 <br>
 
 <%= link_to 'New Tweet', new_tweet_path %>
+<%= link_to "Log out", logout_path, method: "delete" %>
