@@ -7,8 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav class='navbar navbar-default'>
+    <span>
+      <div class="container-fluid">
+        <h1 class="title">TWITTER</h2>
+        <%= link_to image_tag('logo.png'), tweets_path, class: "navimage" %>
+    </span>
 
+      <ul class="nav navbar-nav navbar pull-right">
+        <% if logged_in? %>
+          <li> <%= link_to "Write a Tweet", new_tweet_path, class: "btn btn-default" %> </li>
+          <li> <%= link_to "Sign Out", logout_path, method: :DELETE, class: "btn btn-danger" %> </li>
+        <% else %>
+          <li> <%= link_to "Sign In", login_path, class: "btn btn-default navbar-btn js-login" %> </li>
+          <li> <%= link_to "Sign Up", new_user_path, class: "btn btn-default navbar-btn js-signup" %> </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
 <%= yield %>
-
+<footer></footer>
 </body>
 </html>

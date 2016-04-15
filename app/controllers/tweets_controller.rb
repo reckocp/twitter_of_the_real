@@ -24,8 +24,9 @@ class TweetsController < ApplicationController
   # POST /tweets
   # POST /tweets.json
   def create
-    @tweet = Tweet.new(tweet_params)
-
+    @tweet = Tweet.create!(tweet_params)
+    @tweet.user_id = current_user.id
+    
     respond_to do |format|
       if @tweet.save
         format.html { redirect_to @tweet, notice: 'Tweet was successfully created.' }

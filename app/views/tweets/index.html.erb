@@ -1,11 +1,12 @@
 
-<%= render 'layouts/header' %>
 
 <p id="notice"><%= notice %></p>
-
+<% if logged_in? %>
+<h3>Hello <%= current_user.username %>!</h3>
+<% end %>
 <h1>Listing Tweets</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Message</th>
@@ -18,10 +19,9 @@
     <% @tweets.each do |tweet| %>
       <tr>
         <td><%= tweet.message %></td>
-        <td><%= tweet.user %></td>
-        <td><%= link_to 'Show', tweet %></td>
-        <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
-        <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= tweet.user.username %></td>
+        <td><%= link_to 'View', tweet %></td>
+        <td><%= link_to 'Delete', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

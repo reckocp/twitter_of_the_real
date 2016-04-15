@@ -1,6 +1,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-h1 {
-  padding-top: 1em;
+.navbar.navbar-default {
+  background: linear-gradient(to right, #59ADEB , #35CE95);
+  padding: 1em;
+}
+
+.title {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  color: white;
+  text-align: center;
+}
+
+.navimage img{
+    width:100px;
+    height: auto;
+    text-align: center;
 }
