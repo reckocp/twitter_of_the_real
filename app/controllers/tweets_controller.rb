@@ -4,7 +4,7 @@ class TweetsController < ApplicationController
   # GET /tweets
   # GET /tweets.json
   def index
-    @tweets = Tweet.all
+    @tweets = Tweet.order( "created_at DESC" )
   end
 
   # GET /tweets/1
@@ -26,7 +26,7 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.create!(tweet_params)
     @tweet.user_id = current_user.id
-    
+
     respond_to do |format|
       if @tweet.save
         format.html { redirect_to @tweet, notice: 'Tweet was successfully created.' }
