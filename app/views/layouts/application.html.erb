@@ -17,6 +17,7 @@
       <ul class="nav navbar-nav navbar pull-right">
         <% if logged_in? %>
           <li> <%= link_to "Write a Tweet", new_tweet_path, class: "btn btn-default" %> </li>
+          <li> <%= link_to "User Profile", current_user, class: "btn btn-default" %> </li>
           <li> <%= link_to "Sign Out", logout_path, method: :DELETE, class: "btn btn-danger" %> </li>
         <% else %>
           <li> <%= link_to "Sign In", login_path, class: "btn btn-default navbar-btn js-login" %> </li>
