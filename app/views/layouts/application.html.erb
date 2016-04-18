@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TwitterOfTheReal</title>
+  <title>Colin's Twitter</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -11,13 +11,14 @@
     <span>
       <div class="container-fluid">
         <h1 class="title">TWITTER</h2>
-        <%= link_to image_tag('logo.png'), tweets_path, class: "navimage" %>
+        <%= link_to image_tag('logo.png'), root_path, class: "navimage" %>
     </span>
 
       <ul class="nav navbar-nav navbar pull-right">
         <% if logged_in? %>
           <li> <%= link_to "Write a Tweet", new_tweet_path, class: "btn btn-default" %> </li>
           <li> <%= link_to "User Profile", current_user, class: "btn btn-default" %> </li>
+          <li> <%= link_to "View Users", users_path, class: "btn btn-default" %> </li>
           <li> <%= link_to "Sign Out", logout_path, method: :DELETE, class: "btn btn-danger" %> </li>
         <% else %>
           <li> <%= link_to "Sign In", login_path, class: "btn btn-default navbar-btn js-login" %> </li>
@@ -27,7 +28,6 @@
     </div>
   </nav>
 <div class="container">
-
 <%= yield %>
 
 </div>

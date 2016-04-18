@@ -3,6 +3,9 @@
 <% if logged_in? %>
 <h3>Hello <%= current_user.username %>!</h3>
 <% end %>
+
+
+
 <h1>Listing Tweets</h1>
 
 <table class="table">
@@ -22,13 +25,21 @@
         <td><%= tweet.user.username %></td>
         <td><%= tweet.created_at.strftime("%F %T") %></td>
         <td><%= link_to 'View', tweet %></td>
+        <% if logged_in? %>
         <td><%= link_to 'Delete', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
+<div id='tweet-storage'>
+  <% @tweets.each do |tweet| %>
+    <p><%= tweet.message %></p>
+  <% end %>
+</div>
 
 <br>
-
+<% if logged_in? %>
 <%= link_to 'New Tweet', new_tweet_path %>
 <%= link_to "Log out", logout_path, method: "delete" %>
+<% end %>
