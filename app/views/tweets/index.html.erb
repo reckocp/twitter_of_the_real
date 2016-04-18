@@ -7,6 +7,21 @@
 
 
 <h1>Listing Tweets</h1>
+<div class="new-tweet-where-ya-at">
+  <button name="button" class="tweet-button">Click to create a tweet!</button>
+    <%= form_tag(new_tweet_path, method: :get) do %>
+      <div class="index-tweet-box">
+        <div class="field" id="new_message">
+          <%= label(:message, "Type tweet here.") %><br>
+          <%= text_field(:message, "Type tweet here.") %>
+        </div>
+
+        <div class="actions">
+          <%= submit_tag 'Post!' %>
+        </div>
+      </div>
+    <% end %>
+</div>
 
 <table class="table">
   <thead>
@@ -32,11 +47,8 @@
     <% end %>
   </tbody>
 </table>
-<div id='tweet-storage'>
-  <% @tweets.each do |tweet| %>
-    <p><%= tweet.message %></p>
-  <% end %>
-</div>
+
+
 
 <br>
 <% if logged_in? %>
